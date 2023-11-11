@@ -22,7 +22,7 @@ def pregunta_01():
     data = pd.read_csv("data.csv")
 
     # Cree un objeto de tipo `PolynomialFeatures` con grado `2`
-    poly = ___.PolynomialFeatures(2)
+    poly = PolynomialFeatures(2)
 
     # Transforme la columna `x` del dataset `data` usando el objeto `poly`
     x_poly = poly.fit_transform(data[["x"]])
@@ -44,7 +44,7 @@ def pregunta_02():
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
     params = np.zeros(3)
-    for _ in range(n_iterations):
+    for i in range(n_iterations):
 
         # Compute el pronóstico con los parámetros actuales
         prediction=[params[0]*i[0]+params[1]*i[1]+params[2]*i[2] for i in x_poly]
