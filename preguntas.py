@@ -43,17 +43,21 @@ def pregunta_02():
     n_iterations = 1000
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
-    params = np.zeros(3___.shape[1])
+    params = np.zeros(3)
     for _ in range(n_iterations):
 
         # Compute el pronóstico con los parámetros actuales
-        y_pred = np.___(___, ___)
+        prediction=[params[0]*i[0]+params[1]*i[1]+params[2]*i[2] for i in x_poly]
+        y_pred = np.array(prediction,)
 
         # Calcule el error
-        error = ___ - ___
+        error = y - y_pred
 
         # Calcule el gradiente
-        gradient = ____
+        dw0=-2*sum(error)
+        dw1=-2*sum([error[i]*x_poly[i,1] for i in range(len(x_poly))])
+        dw2=-2*sum([error[i]*x_poly[i,2] for i in range(len(x_poly))])
+        gradient = np.array([dw0,dw1,dw2])
 
         # Actualice los parámetros
         params = params - learning_rate * gradient
